@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"istio-ingressgateway","install.operator.istio.io/owning-resource":"installed-state","install.operator.istio.io/owning-resource-namespace":"istio-system","istio":"ingressgateway","operator.istio.io/component":"IngressGateways","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.6.5","release":"istio"},"name":"istio-ingressgateway","namespace":"istio-system"},"spec":{"ports":[{"name":"status-port","port":15020,"targetPort":15020},{"name":"http2","port":80,"targetPort":8080},{"name":"https","port":443,"targetPort":8443},{"name":"tcp","port":31400,"targetPort":31400},{"name":"tls","port":15443,"targetPort":15443}],"selector":{"app":"istio-ingressgateway","istio":"ingressgateway"},"type":"LoadBalancer"}}
+  creationTimestamp: "2020-07-21T01:11:37Z"
+  labels:
+    app: istio-ingressgateway
+    install.operator.istio.io/owning-resource: installed-state
+    install.operator.istio.io/owning-resource-namespace: istio-system
+    istio: ingressgateway
+    operator.istio.io/component: IngressGateways
+    operator.istio.io/managed: Reconcile
+    operator.istio.io/version: 1.6.5
+    release: istio
+  name: istio-ingressgateway
+  namespace: istio-system
+  resourceVersion: "3623549"
+  selfLink: /api/v1/namespaces/istio-system/services/istio-ingressgateway
+  uid: 91df4a62-fa0e-4402-86d0-ce21b8d7b464
+spec:
+  clusterIP: 10.109.201.160
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: status-port
+    nodePort: 30519
+    port: 15020
+    protocol: TCP
+    targetPort: 15020
+  - name: http2
+    nodePort: 31984
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  - name: https
+    nodePort: 30475
+    port: 443
+    protocol: TCP
+    targetPort: 8443
+  - name: tcp
+    nodePort: 31381
+    port: 31400
+    protocol: TCP
+    targetPort: 31400
+  - name: tls
+    nodePort: 31223
+    port: 15443
+    protocol: TCP
+    targetPort: 15443
+  selector:
+    app: istio-ingressgateway
+    istio: ingressgateway
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: localhost
